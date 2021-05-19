@@ -22,41 +22,28 @@ function createItemList({ language, description }) {
   return li;
 }
 
-function renderPortfolio() {
-  const fullForm = document.querySelector('form');
-
-  fullForm.addEventListener('submit', function(event){
+function renderPortfolio ({language, description}) {
+  const conteinerList = document.querySelector('.conteiner-list');
+  const button = document.querySelector('.button-subtmit');
+  button.addEventListener('submit', function(event) {
     event.preventDefault();
-    if(checkData() && validateEmail()) {
-           
-      const formelements = document.querySelectorAll('input');
-        for (let index = 0; index < formelements.length; index +=1) {
-        if (formelements[index].type === 'radio' && !formelements[index].checked) {
-          continue;
-        } 
-        const inputUser = formelements[index].value;
-        const formData = document.getElementById('form-attached');
-        const fullForm = document.createElement('div');
-        fullForm.id = 'div';
-        fullForm.innerHTML = inputUser;
-        formData.appendChild(fullForm);     
-      } 
-    } 
-  })
+    if(validateLogin())
+    conteinerList.appendChild(createItemList({language, description})); 
+    else break;
+    })   
 }
-
 function fetchRepo() {
   const endpoint = 'https://api.github.com/users/ORYANGE/repos';
   fetch(endpoint)
   .then((response) => response.json())
   .then((data) => data.forEach(({ language, description }) => {
-    
-    const conteinerList = document.querySelector('.conteiner-list');
-    const button = document.querySelector('.button-subtmit');
-    button.addEventListener('click', function(event) {
-      event.preventDefault();
-      conteinerList.appendChild(createItemList({language, description})); 
-      });
+    renderPortfolio ({language, description});
+    // const conteinerList = document.querySelector('.conteiner-list');
+    // const button = document.querySelector('.button-subtmit');
+    // button.addEventListener('submit', function(event) {
+    //   event.preventDefault();
+    //   conteinerList.appendChild(createItemList({language, description})); 
+    //   });
   }));
 }
 
