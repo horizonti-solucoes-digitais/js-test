@@ -35,13 +35,31 @@ function validateLogin() {
 }
 
 // cria itens da lista no tamplate desejado 
-function createItemList({ language, description }) {
+function createItemList({ language, description, updated_at, ssh_url }) {
   const conteinerList = document.querySelector('.items');
   const li = document.createElement('li');
   li.className = 'item-list';
-  li.innerText = `Projeto: ${description} | Tecnologia: ${language}`;
+  li.innerText = `Project: ${description} | Tech: ${language}`;
+  li.addEventListener('click', (event) => createAppendList(event, updated_at, ssh_url));
   conteinerList.appendChild(li);
   return li;
+}
+
+//cria informações no projeto listado 
+function createAppendList(event, updated_at, ssh_url) {
+  const local = event.target 
+  const appendList = document.createElement('li');
+  appendList.addEventListener('click', (event) => removeAppendList(event));
+  appendList.className = 'append-list'
+  appendList.innerText = `Update: ${updated_at}  |  ssh_url: ${ssh_url}`;
+  local.appendChild(appendList);
+  return appendList;
+}
+
+// cria função remove appendList caso seja clicada novamente
+function removeAppendList(event) { 
+  const local = event.target;
+  local.parentNode.removeChild(local)
 }
 
 // valida  o input  de pesquisa
@@ -80,8 +98,8 @@ function fetchRepo() {
   const endpoint = 'https://api.github.com/users/oryange/repos';
   fetch(endpoint)
   .then((response) => response.json())
-  .then((data) => {
-    dadosAPI = data.map(({ language, description }) => ({ language, description }))
+  .then((data) => { console.log(data)
+    dadosAPI = data.map(({ language, description, updated_at, ssh_url }) => ({ language, description, updated_at, ssh_url }))
     .sort(sorted);
     dadosAPI.forEach((obj) => createItemList(obj));
   });
