@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Login | API - GitHub Repository</title>
+</head>
+<body>
+<header>
+
+  <img src="icon-code.png">
+  <h1> Log in to access projects from a Repository on GitHub</h1>
+
+  <form class="form-login" action="">
+    <input class="email" type="email" name="login" placeholder="e-mail">
+    <input class="password" type="password" name="password" placeholder="password">
+
+    <div>
+      <button class="button-submit" type="button">Submit</button>
+      <button class="button-reset" type="reset">Reset</button>
+    </div>
+  </form>
+</header>
+
+<section class="conteiner-list">
+  <h1 class="alert-true">Welcome, <span>search</span> for the desired project!</h1>
+  <div>
+    <input class="input-search" placeholder="case-sensitive">
+    <button class="button-input"> Search</button>
+  </div>
+    <ol class="items"></ol>
+</section>
+
+  <script src="script.js"></script>
+</body>
+</html>
