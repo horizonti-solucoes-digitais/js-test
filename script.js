@@ -105,9 +105,14 @@ function fetchRepo() {
   });
 }
 
-// -- paginação:
 
-// 1 - guardar dados API;
+// ---- Pendencias:
+
+// -- appendLi:
+// - verificar para deixar o click único.
+
+// -- paginação:
+// 1 - guardar dados API - ok;
 // 2 - criar variavel que mostre quantos itens quero por página;
 // 3 - criar próximo e anterior
 // 4 - lógica: se não tiver anterior ou próximo, não faça nada;
