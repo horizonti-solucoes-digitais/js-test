@@ -6,10 +6,18 @@ const Home = () => {
   console.log(data)
 
   return(
-  <>
-  <h1>Sou Home</h1>
-  
-  </>
+  <main className="container">
+  { data.sort().map((e) => (
+    <section className="card">
+      <section className="card-body">
+         <h2 className="card-title">{e.name}</h2>
+         <span className="card-subtitle mb-2 text-muted">{ e.language }</span>
+         <a href="#" class="card-link">Card link</a>
+      </section>
+    </section>
+    ))}
+
+  </main>
   )
 }
 
