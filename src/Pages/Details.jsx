@@ -12,7 +12,7 @@ const Details = (props) => {
   const cardSelect = data.find((e) => e.id = id);
 
 
-  if (path === rota) return <CardDetails path={ pathname } card={ cardSelect } />;
+  if (path === rota) return <CardDetails card={ cardSelect } />;
 
 }
 
