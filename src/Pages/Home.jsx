@@ -8,7 +8,7 @@ const Home = () => {
 
   return(
   <main className="container ">
-    { data.sort().map((e) => <Card infoCard={ e }/>)}
+    { data.sort().map((e) => <Card key={ e.id } infoCard={ e }/>) }
   </main>
   )
 }
