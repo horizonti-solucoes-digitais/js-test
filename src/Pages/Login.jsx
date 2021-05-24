@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../styles/login.css';
 
 const Login = (props) => {
   const [user, setUser] = useState({ email: '', password: '' });
@@ -23,34 +24,37 @@ const Login = (props) => {
   const { email, password } = user;
   return (
 
-    <div>
-      <form>
-        <div>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            value={email}
-            onChange={handleChange}
-            placeholder="Email"
-          />
-          <input
-            type="password"
-            name="password"
-            id="password"
-            value={password}
-            onChange={handleChange}
-            placeholder="Password"
-          />
-          <button
-            type="button"
-            disabled={verifyEmailAndPassword(email, password.length)}
-            onClick={handleClick}
-          >
-            Entrar
-          </button>
-        </div>
-      </form>
+    <div className="flex-box">
+      <div className="container-box">
+        <form>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              value={email}
+              onChange={handleChange}
+              placeholder="Email"
+              className="form-control form-control-lg input-login"
+            />
+            <input
+              type="password"
+              name="password"
+              id="password"
+              value={password}
+              onChange={handleChange}
+              placeholder="Password"
+              className="form-control form-control-lg input-login"
+            />
+            <button
+              type="button"
+              disabled={verifyEmailAndPassword(email, password.length)}
+              onClick={handleClick}
+              className="btn btn-info button-login"
+            >
+              Entrar
+            </button>
+        </form>
+      </div>
     </div>
   );
 };

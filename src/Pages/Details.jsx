@@ -8,8 +8,8 @@ const Details = (props) => {
   const { match: { path } } = props;
   const rota = '/home/:id';
   const { location: { pathname } } = props;
-  const { data } = useContext(DataContext);
-  const cardSelect = data.find((e) => e.id = id);
+  const { data:{ state }} = useContext(DataContext);
+  const cardSelect = state.find((e) => e.id = id);
 
 
   if (path === rota) return <CardDetails card={ cardSelect } />;

@@ -3,19 +3,54 @@ import { getGitUser } from '../services/api';
 import DataContext from './DataContext';
 
 const Store = ({ children }) => {
+  const initialStateFilters = {
 
-  const [data, setData] = useState([]);
+    filterByName: {
+      name: '',
+    },
+    filterBylanguage: {
+      language: ''
+    },
+  };
+
+  const initialState = {
+    state: [],
+    original: [],
+  };
+
+  const [data, setData] = useState(initialState);
+  const [filters, setFilters] = useState(initialStateFilters);
 
 
   useEffect(() => {
     async function funcGetUser() {
       const user = await getGitUser();
-      setData(user);
+      setData({
+        ...data,
+        state: user,
+        original: user,
+      });
     }
     funcGetUser();
   }, []);
 
-  const globalState = { data }
+  useEffect(() => {
+    setData((prev) => ({
+      ...prev,
+      state: prev.original.filter((repo) => repo.name
+        .includes(filters.filterByName.name)),
+    }));
+  }, [filters]);
+
+  useEffect(() => {
+    setData((prev) => ({
+      ...prev,
+      state: prev.original.filter((repo) => repo.language
+      .includes(filters.filterBylanguage.language)),
+    }));
+  }, [filters]);
+
+  const globalState = { data, filters, setFilters }
 
 return (
   <DataContext.Provider value={ globalState }>

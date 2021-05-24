@@ -17,11 +17,6 @@ useEffect(async () => {
   const branches = await getBranches(card.full_name);
   setBranches(branches.length);
 
-  const lastUpdate = await getLastUpdate(card.full_name);
-  setLastUpDate(lastUpdate);
-
-  const language = await getlanguages(card.full_name);
-  setLanguages(language);
 }, []);
 
 
@@ -36,7 +31,10 @@ useEffect(async () => {
       <br></br>
       <span>{`Quantidade de branches: ${ branches }`}</span>
       <br></br>
-      <span>{`Ultima atualização: ${ lastUpDate }`}</span>
+      <span>{`Ultima atualização: ${ card.updated_at }`}</span>
+      <br></br>
+      {card.private? <span>Repositório Privado</span> : <span>Repositório Público</span>}
+
     </section>
 
   )
