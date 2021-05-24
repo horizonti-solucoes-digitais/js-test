@@ -1,5 +1,5 @@
 import React, { useEffect , useState } from 'react';
-import getGitUser from '../services/api';
+import { getGitUser } from '../services/api';
 import DataContext from './DataContext';
 
 const Store = ({ children }) => {

@@ -5,8 +5,7 @@ import Filters from '../Components/Filters';
 
 const Home = () => {
   const { data } = useContext(DataContext);
-  console.log(data)
-
+  
   return(
   <main className="container ">
     <Filters />
