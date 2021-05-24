@@ -22,20 +22,23 @@ useEffect(async () => {
 
  
   return(
-    <section>
-      <span>{ `Detalhes do repositório ${ card.name }`}</span>
-      <br></br>
-      <span>{`Quantidade de forks: ${ card.forks }`}</span>
-      <br></br>
-      <span>{`Quantidade de commits: ${ commits }`}</span>
-      <br></br>
-      <span>{`Quantidade de branches: ${ branches }`}</span>
-      <br></br>
-      <span>{`Ultima atualização: ${ card.updated_at }`}</span>
-      <br></br>
-      {card.private? <span>Repositório Privado</span> : <span>Repositório Público</span>}
-
-    </section>
+    <div className="container">
+      <section className="card card-repo">
+        <span className="title-card-details">{ `Detalhes do repositório ${ card.name }`}</span>
+        <br></br>
+        <span className="text-details">{`Quantidade de forks: ${ card.forks }`}</span>
+        <br></br>
+        <span className="text-details">{`Quantidade de commits: ${ commits }`}</span>
+        <br></br>
+        <span className="text-details">{`Quantidade de branches: ${ branches }`}</span>
+        <br></br>
+        <span className="text-details">{`Ultima atualização: ${ card.updated_at }`}</span>
+        <br></br>
+        {card.private? 
+        <span className="text-details">Repositório Privado</span> :
+        <span className="text-details">Repositório Público</span>}
+      </section>
+    </div>
 
   )
 }

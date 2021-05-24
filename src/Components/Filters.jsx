@@ -13,18 +13,18 @@ const Filters = () => {
     });
   }
 
-  function handleChangeInputLanguage({ target: { value } }) {
+  /* function handleChangeInputLanguage({ target: { value } }) {
     setFilters({
       ...filters,
       filterBylanguage: {
         language: value,
       },
     });
-  }
+  } */
 
 
   return(
-    <div style={{display: 'flex', flexDirection:'row'}}>
+    <div style={{display: 'flex', alignItems:'center'}}>
       <form>
     
       <input 
@@ -33,11 +33,11 @@ const Filters = () => {
       onChange={ handleChangeInputName }
       className="input-login form-control form-control-lg" />
 
-       <input 
+       {/* <input 
       type="text" 
       placeholder="Digite uma linguagem" 
       onChange={ handleChangeInputLanguage }
-      className="input-login form-control form-control-lg"/>
+      className="input-login form-control form-control-lg"/> */}
  
       </form>
     </div>

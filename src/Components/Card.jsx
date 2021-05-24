@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Card = ({infoCard :{name, language, id}}) => {
   return(
-    <div style={{width: '80%'}}>
+    <div style={{width: '90%'}}>
       <section className="card card-repo">
         <section className="card-body d-flex flex-column bd-highlight mb-3 flex-box ">
           <h2 className="card-title p-2 bd-highlight title-card">{ name }</h2>

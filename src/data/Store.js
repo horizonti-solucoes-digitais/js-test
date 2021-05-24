@@ -42,15 +42,7 @@ const Store = ({ children }) => {
     }));
   }, [filters]);
 
-  useEffect(() => {
-    setData((prev) => ({
-      ...prev,
-      state: prev.original.filter((repo) => repo.language
-      .includes(filters.filterBylanguage.language)),
-    }));
-  }, [filters]);
-
-  const globalState = { data, filters, setFilters }
+const globalState = { data, filters, setFilters }
 
 return (
   <DataContext.Provider value={ globalState }>
