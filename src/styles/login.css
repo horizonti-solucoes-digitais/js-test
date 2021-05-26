@@ -1,0 +1,64 @@
+body {
+  background-color: rgb(187, 189, 246);
+}
+
+.button-details {
+  width: 40%;
+}
+
+.button-login{
+  background-color: rgb(152, 147, 218);
+  margin: 5px;
+  width: 98%;
+}
+
+.card-repo {
+  background-color: rgb(152, 147, 218);
+  margin: 2%;
+  border-radius: 25px;
+  padding: 5%;
+}
+
+.container-box {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   border: 0px groove #666666;
+   width: 20em;
+   height: 28em;
+}
+
+.flex-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-login {
+  margin: 1px;
+}
+
+.text-details {
+  text-align: left;
+  margin: 2px;
+  margin-left: 6px;
+  font-weight: 300;
+
+}
+
+.title-card-details {
+  text-align: center;
+  font-size: larger;
+  font-weight: 500;
+}
+
+.title-card {
+  color: black;
+  text-align: center;
+}
+
+::placeholder {
+  text-align: center;
+  font-size: medium;
+}
